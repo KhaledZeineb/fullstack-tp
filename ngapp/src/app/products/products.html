@@ -1,0 +1,45 @@
+
+<div class="container py-4">
+  <h2 class="text-center mb-4">Notre catalogue de produits</h2>
+
+  @if (loading()) {
+    <p class="text-center">Chargement des produits...</p>
+  } @else if (error()) {
+    <div class="alert alert-danger text-center">
+      {{ error() }}
+      <button class="btn btn-outline-danger ms-2" (click)="loadProducts()">
+        Réessayer
+      </button>
+    </div>
+  } @else {
+    <div class="row g-4">
+      @for (product of products(); track product.id) {
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <app-product-card [product]="product" />
+        </div>
+      }
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center gap-3 mt-4">
+      <button
+        class="btn btn-outline-primary"
+        (click)="previousPage()"
+        [disabled]="skip() === 0"
+      >
+        Précédent
+      </button>
+
+      <span>
+        Page {{ skip() / limit + 1 }}
+      </span>
+
+      <button
+        class="btn btn-primary"
+        (click)="nextPage()"
+        [disabled]="skip() + limit >= total()"
+      >
+        Suivant
+      </button>
+    </div>
+  }
+</div>

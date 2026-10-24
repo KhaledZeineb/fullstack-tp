@@ -1,0 +1,33 @@
+
+<app-header></app-header>
+
+<button (click)="goBack()">Back</button>
+<button (click)="gotoLogin()">Login Page</button>
+<button (click)="gotoContact()">Contact Page</button>
+<div>
+  <input
+    #newState
+    type="text"
+    placeholder="Entrez une ville"
+  />
+
+  <button (click)="addState(newState.value); newState.value = ''">
+    Ajouter
+  </button>
+</div>
+
+
+<app-child
+  [content]="content"
+  [states]="states"
+  (selected)="onSelected($event)"
+/>
+
+<p>Selected: {{ chosen }}</p>
+
+
+<router-outlet></router-outlet>
+
+<app-products></app-products>
+
+<app-contact-form></app-contact-form>

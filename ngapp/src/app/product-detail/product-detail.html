@@ -1,0 +1,42 @@
+
+<div class="container py-5">
+  <a routerLink="/products" class="btn btn-outline-secondary mb-4">
+    ← Retour au catalogue
+  </a>
+
+  @if (loading()) {
+    <p class="text-center">Chargement des détails...</p>
+  } @else if (error()) {
+    <div class="alert alert-danger">
+      {{ error() }}
+    </div>
+  } @else if (product(); as p) {
+    <div class="card shadow-sm">
+      <div class="row g-0">
+        <div class="col-md-5 text-center p-4">
+          <img
+            [src]="p.thumbnail"
+            [alt]="p.title"
+            class="img-fluid product-detail-image"
+          >
+        </div>
+
+        <div class="col-md-7">
+          <div class="card-body p-4">
+            <h2 class="card-title">{{ p.title }}</h2>
+
+            <p class="text-secondary">
+              Catégorie : {{ p.category }}
+            </p>
+
+            <p class="card-text">{{ p.description }}</p>
+
+            <h3 class="text-primary fw-bold">
+              {{ p.price }} $
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>
