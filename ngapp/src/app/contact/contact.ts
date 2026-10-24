@@ -1,10 +1,11 @@
 
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ContactForm } from '../contact-form/contact-form';
 
 @Component({
   selector: 'app-contact',
-  imports: [],
+  imports: [ContactForm],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })

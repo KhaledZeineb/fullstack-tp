@@ -1,4 +1,14 @@
 
-<h1>Contact Page</h1>
-<p>Contact Page Id: {{ id }}</p>
-<p>Contact Reference: {{ ref }}</p>
+<div class="container py-4">
+  <h1 class="mb-4">Contact</h1>
+
+  @if (id) {
+    <p>Contact ID : {{ id }}</p>
+  }
+
+  @if (ref) {
+    <p>Référence : {{ ref }}</p>
+  }
+
+  <app-contact-form />
+</div>
