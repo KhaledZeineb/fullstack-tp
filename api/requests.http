@@ -1,0 +1,29 @@
+
+### 1. Vérifier l'API
+GET http://localhost:4000/api/health
+
+### 2. Lister les catégories
+GET http://localhost:4000/api/categories
+
+### 3. Créer une catégorie
+POST http://localhost:4000/api/categories
+Content-Type: application/json
+
+{
+  "name": "Dattes tunisiennes"
+}
+
+### 4. Lister les produits
+GET http://localhost:4000/api/products
+
+### 5. Créer un produit
+POST http://localhost:4000/api/products
+Content-Type: application/json
+
+{
+  "title": "Deglet Nour",
+  "description": "Dattes tunisiennes de qualité",
+  "price": 12.5,
+  "thumbnail": "https://example.com/dattes.jpg",
+  "categoryId": 1
+}
